@@ -1,8 +1,12 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground } from 'react-native';
+import { useNavigation  } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import api from '../../api';
 
 export default function CharactersList() {
+    const navigation = useNavigation()
+
+
     const [character, setCharacter] = React.useState([])
     const [infoOn, setInfoOn] = React.useState(false)
 
@@ -16,12 +20,18 @@ export default function CharactersList() {
         loadCharacters()
     }, [character])
 
-    function handlePress() {
-        if (infoOn == true) {
-            setInfoOn(false)
-        } else {
-            setInfoOn(true)
-        }
+    // function infosChar() {
+    //     if (infoOn == true) {
+    //         setInfoOn(false)
+    //     } else {
+    //         setInfoOn(true)
+    //     }
+    // }
+
+    function handlePress(){
+        // infosChar()
+        navigation.navigate('CharacterInfo', `${character.id}`)
+
     }
 
 
@@ -35,14 +45,14 @@ export default function CharactersList() {
                                 <Text style={styles.nome}>{characters.name}</Text>
                             </View>
                             <View>
-                                { infoOn ? null :
+                                {/* { infoOn ? null : */}
                                     <TouchableOpacity onPress={() => handlePress()}>
                                         <ImageBackground style={styles.image} source={{ uri: `${characters.image}` }}>
                                         </ImageBackground>
                                     </TouchableOpacity>
-                                }
-                                { infoOn ? 
-                                <View>
+                                {/* }
+                                { infoOn ?  */}
+                                {/* <View>
                                     <TouchableOpacity onPress={() => handlePress()}>
                                         <ImageBackground style={styles.image} source={{ uri: `${characters.image}` }}>
                                         </ImageBackground>
@@ -50,7 +60,7 @@ export default function CharactersList() {
                                     <Text>{characters.status}</Text>
                                     <Text>{characters.species}</Text>
                                     <Text>{characters.gender}</Text>
-                                </View> : null } 
+                                </View> : null }  */}
                             </View>
                         </View>
                     )

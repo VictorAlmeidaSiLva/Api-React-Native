@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import CharactersList from './components/CharactersList';
+import CharactersList from '../src/components/CharactersList';
 
 export default function Characters() {
   return (
