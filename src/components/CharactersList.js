@@ -30,7 +30,7 @@ export default function CharactersList() {
 
     function handlePress(){
         // infosChar()
-        navigation.navigate('CharacterInfo', `${character.id}`)
+        
 
     }
 
@@ -46,7 +46,7 @@ export default function CharactersList() {
                             </View>
                             <View>
                                 {/* { infoOn ? null : */}
-                                    <TouchableOpacity onPress={() => handlePress()}>
+                                    <TouchableOpacity onPress={() => handlePress(navigation.navigate('CharacterInfo', `${characters.id}`))}>
                                         <ImageBackground style={styles.image} source={{ uri: `${characters.image}` }}>
                                         </ImageBackground>
                                     </TouchableOpacity>

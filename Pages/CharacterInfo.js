@@ -7,7 +7,7 @@ export default function CharacterInfo(ident) {
     const [singleChar, setSingleChar] = React.useState([])
     const navigation = useNavigation();
 
-    const indentifica = ( ident.route )
+    const indentifica = ( ident.route.params )
 
     useEffect(() => {
 
